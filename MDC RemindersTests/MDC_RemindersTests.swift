@@ -2,7 +2,7 @@
 //  MDC_RemindersTests.swift
 //  MDC RemindersTests
 //
-//  Created by Ian McDowell on 1/15/15.
+//  Created by Ian McDowell on 1/22/15.
 //  Copyright (c) 2015 Mobile Development Club. All rights reserved.
 //
 

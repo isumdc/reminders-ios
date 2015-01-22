@@ -7,46 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CE375721A68891000ECC93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE375711A68891000ECC93B /* AppDelegate.swift */; };
-		3CE375741A68891000ECC93B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE375731A68891000ECC93B /* ViewController.swift */; };
-		3CE375771A68891000ECC93B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CE375751A68891000ECC93B /* Main.storyboard */; };
-		3CE375791A68891000ECC93B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE375781A68891000ECC93B /* Images.xcassets */; };
-		3CE3757C1A68891000ECC93B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE3757A1A68891000ECC93B /* LaunchScreen.xib */; };
-		3CE375881A68891000ECC93B /* MDC_RemindersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE375871A68891000ECC93B /* MDC_RemindersTests.swift */; };
+		3C46F8B31A71BF2300D8A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8B21A71BF2300D8A798 /* AppDelegate.swift */; };
+		3C46F8B61A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8B41A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld */; };
+		3C46F8B81A71BF2300D8A798 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8B71A71BF2300D8A798 /* ViewController.swift */; };
+		3C46F8BB1A71BF2300D8A798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C46F8B91A71BF2300D8A798 /* Main.storyboard */; };
+		3C46F8BD1A71BF2300D8A798 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C46F8BC1A71BF2300D8A798 /* Images.xcassets */; };
+		3C46F8C01A71BF2300D8A798 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C46F8BE1A71BF2300D8A798 /* LaunchScreen.xib */; };
+		3C46F8CC1A71BF2300D8A798 /* MDC_RemindersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8CB1A71BF2300D8A798 /* MDC_RemindersTests.swift */; };
+		3C46F8D61A71C25100D8A798 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3CE375821A68891000ECC93B /* PBXContainerItemProxy */ = {
+		3C46F8C61A71BF2300D8A798 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3CE375641A68891000ECC93B /* Project object */;
+			containerPortal = 3C46F8A51A71BF2300D8A798 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3CE3756B1A68891000ECC93B;
+			remoteGlobalIDString = 3C46F8AC1A71BF2300D8A798;
 			remoteInfo = "MDC Reminders";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3CE3756C1A68891000ECC93B /* MDC Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MDC Reminders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CE375701A68891000ECC93B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CE375711A68891000ECC93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3CE375731A68891000ECC93B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3CE375761A68891000ECC93B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3CE375781A68891000ECC93B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3CE3757B1A68891000ECC93B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3CE375811A68891000ECC93B /* MDC RemindersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MDC RemindersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CE375861A68891000ECC93B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CE375871A68891000ECC93B /* MDC_RemindersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDC_RemindersTests.swift; sourceTree = "<group>"; };
+		3C46F8AD1A71BF2300D8A798 /* MDC Reminders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MDC Reminders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C46F8B11A71BF2300D8A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C46F8B21A71BF2300D8A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3C46F8B51A71BF2300D8A798 /* MDC_Reminders.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MDC_Reminders.xcdatamodel; sourceTree = "<group>"; };
+		3C46F8B71A71BF2300D8A798 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3C46F8BA1A71BF2300D8A798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3C46F8BC1A71BF2300D8A798 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3C46F8BF1A71BF2300D8A798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3C46F8C51A71BF2300D8A798 /* MDC RemindersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MDC RemindersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C46F8CA1A71BF2300D8A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C46F8CB1A71BF2300D8A798 /* MDC_RemindersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDC_RemindersTests.swift; sourceTree = "<group>"; };
+		3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddReminderViewController.swift; path = ViewControllers/AddReminderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3CE375691A68891000ECC93B /* Frameworks */ = {
+		3C46F8AA1A71BF2300D8A798 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3CE3757E1A68891000ECC93B /* Frameworks */ = {
+		3C46F8C21A71BF2300D8A798 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -56,58 +60,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3CE375631A68891000ECC93B = {
+		3C46F8A41A71BF2300D8A798 = {
 			isa = PBXGroup;
 			children = (
-				3CE3756E1A68891000ECC93B /* MDC Reminders */,
-				3CE375841A68891000ECC93B /* MDC RemindersTests */,
-				3CE3756D1A68891000ECC93B /* Products */,
+				3C46F8AF1A71BF2300D8A798 /* MDC Reminders */,
+				3C46F8C81A71BF2300D8A798 /* MDC RemindersTests */,
+				3C46F8AE1A71BF2300D8A798 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		3CE3756D1A68891000ECC93B /* Products */ = {
+		3C46F8AE1A71BF2300D8A798 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3CE3756C1A68891000ECC93B /* MDC Reminders.app */,
-				3CE375811A68891000ECC93B /* MDC RemindersTests.xctest */,
+				3C46F8AD1A71BF2300D8A798 /* MDC Reminders.app */,
+				3C46F8C51A71BF2300D8A798 /* MDC RemindersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3CE3756E1A68891000ECC93B /* MDC Reminders */ = {
+		3C46F8AF1A71BF2300D8A798 /* MDC Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				3CE375711A68891000ECC93B /* AppDelegate.swift */,
-				3CE375731A68891000ECC93B /* ViewController.swift */,
-				3CE375751A68891000ECC93B /* Main.storyboard */,
-				3CE375781A68891000ECC93B /* Images.xcassets */,
-				3CE3757A1A68891000ECC93B /* LaunchScreen.xib */,
-				3CE3756F1A68891000ECC93B /* Supporting Files */,
+				3C46F8B21A71BF2300D8A798 /* AppDelegate.swift */,
+				3C46F8B71A71BF2300D8A798 /* ViewController.swift */,
+				3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */,
+				3C46F8B91A71BF2300D8A798 /* Main.storyboard */,
+				3C46F8BC1A71BF2300D8A798 /* Images.xcassets */,
+				3C46F8BE1A71BF2300D8A798 /* LaunchScreen.xib */,
+				3C46F8B41A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld */,
+				3C46F8B01A71BF2300D8A798 /* Supporting Files */,
 			);
 			path = "MDC Reminders";
 			sourceTree = "<group>";
 		};
-		3CE3756F1A68891000ECC93B /* Supporting Files */ = {
+		3C46F8B01A71BF2300D8A798 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3CE375701A68891000ECC93B /* Info.plist */,
+				3C46F8B11A71BF2300D8A798 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3CE375841A68891000ECC93B /* MDC RemindersTests */ = {
+		3C46F8C81A71BF2300D8A798 /* MDC RemindersTests */ = {
 			isa = PBXGroup;
 			children = (
-				3CE375871A68891000ECC93B /* MDC_RemindersTests.swift */,
-				3CE375851A68891000ECC93B /* Supporting Files */,
+				3C46F8CB1A71BF2300D8A798 /* MDC_RemindersTests.swift */,
+				3C46F8C91A71BF2300D8A798 /* Supporting Files */,
 			);
 			path = "MDC RemindersTests";
 			sourceTree = "<group>";
 		};
-		3CE375851A68891000ECC93B /* Supporting Files */ = {
+		3C46F8C91A71BF2300D8A798 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3CE375861A68891000ECC93B /* Info.plist */,
+				3C46F8CA1A71BF2300D8A798 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -115,13 +121,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3CE3756B1A68891000ECC93B /* MDC Reminders */ = {
+		3C46F8AC1A71BF2300D8A798 /* MDC Reminders */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CE3758B1A68891000ECC93B /* Build configuration list for PBXNativeTarget "MDC Reminders" */;
+			buildConfigurationList = 3C46F8CF1A71BF2300D8A798 /* Build configuration list for PBXNativeTarget "MDC Reminders" */;
 			buildPhases = (
-				3CE375681A68891000ECC93B /* Sources */,
-				3CE375691A68891000ECC93B /* Frameworks */,
-				3CE3756A1A68891000ECC93B /* Resources */,
+				3C46F8A91A71BF2300D8A798 /* Sources */,
+				3C46F8AA1A71BF2300D8A798 /* Frameworks */,
+				3C46F8AB1A71BF2300D8A798 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -129,46 +135,46 @@
 			);
 			name = "MDC Reminders";
 			productName = "MDC Reminders";
-			productReference = 3CE3756C1A68891000ECC93B /* MDC Reminders.app */;
+			productReference = 3C46F8AD1A71BF2300D8A798 /* MDC Reminders.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3CE375801A68891000ECC93B /* MDC RemindersTests */ = {
+		3C46F8C41A71BF2300D8A798 /* MDC RemindersTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CE3758E1A68891000ECC93B /* Build configuration list for PBXNativeTarget "MDC RemindersTests" */;
+			buildConfigurationList = 3C46F8D21A71BF2300D8A798 /* Build configuration list for PBXNativeTarget "MDC RemindersTests" */;
 			buildPhases = (
-				3CE3757D1A68891000ECC93B /* Sources */,
-				3CE3757E1A68891000ECC93B /* Frameworks */,
-				3CE3757F1A68891000ECC93B /* Resources */,
+				3C46F8C11A71BF2300D8A798 /* Sources */,
+				3C46F8C21A71BF2300D8A798 /* Frameworks */,
+				3C46F8C31A71BF2300D8A798 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3CE375831A68891000ECC93B /* PBXTargetDependency */,
+				3C46F8C71A71BF2300D8A798 /* PBXTargetDependency */,
 			);
 			name = "MDC RemindersTests";
 			productName = "MDC RemindersTests";
-			productReference = 3CE375811A68891000ECC93B /* MDC RemindersTests.xctest */;
+			productReference = 3C46F8C51A71BF2300D8A798 /* MDC RemindersTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3CE375641A68891000ECC93B /* Project object */ = {
+		3C46F8A51A71BF2300D8A798 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Mobile Development Club";
 				TargetAttributes = {
-					3CE3756B1A68891000ECC93B = {
+					3C46F8AC1A71BF2300D8A798 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					3CE375801A68891000ECC93B = {
+					3C46F8C41A71BF2300D8A798 = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 3CE3756B1A68891000ECC93B;
+						TestTargetID = 3C46F8AC1A71BF2300D8A798;
 					};
 				};
 			};
-			buildConfigurationList = 3CE375671A68891000ECC93B /* Build configuration list for PBXProject "MDC Reminders" */;
+			buildConfigurationList = 3C46F8A81A71BF2300D8A798 /* Build configuration list for PBXProject "MDC Reminders" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -176,29 +182,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 3CE375631A68891000ECC93B;
-			productRefGroup = 3CE3756D1A68891000ECC93B /* Products */;
+			mainGroup = 3C46F8A41A71BF2300D8A798;
+			productRefGroup = 3C46F8AE1A71BF2300D8A798 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3CE3756B1A68891000ECC93B /* MDC Reminders */,
-				3CE375801A68891000ECC93B /* MDC RemindersTests */,
+				3C46F8AC1A71BF2300D8A798 /* MDC Reminders */,
+				3C46F8C41A71BF2300D8A798 /* MDC RemindersTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3CE3756A1A68891000ECC93B /* Resources */ = {
+		3C46F8AB1A71BF2300D8A798 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CE375771A68891000ECC93B /* Main.storyboard in Resources */,
-				3CE3757C1A68891000ECC93B /* LaunchScreen.xib in Resources */,
-				3CE375791A68891000ECC93B /* Images.xcassets in Resources */,
+				3C46F8BB1A71BF2300D8A798 /* Main.storyboard in Resources */,
+				3C46F8C01A71BF2300D8A798 /* LaunchScreen.xib in Resources */,
+				3C46F8BD1A71BF2300D8A798 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3CE3757F1A68891000ECC93B /* Resources */ = {
+		3C46F8C31A71BF2300D8A798 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -208,46 +214,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3CE375681A68891000ECC93B /* Sources */ = {
+		3C46F8A91A71BF2300D8A798 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CE375741A68891000ECC93B /* ViewController.swift in Sources */,
-				3CE375721A68891000ECC93B /* AppDelegate.swift in Sources */,
+				3C46F8D61A71C25100D8A798 /* AddReminderViewController.swift in Sources */,
+				3C46F8B81A71BF2300D8A798 /* ViewController.swift in Sources */,
+				3C46F8B61A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld in Sources */,
+				3C46F8B31A71BF2300D8A798 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3CE3757D1A68891000ECC93B /* Sources */ = {
+		3C46F8C11A71BF2300D8A798 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CE375881A68891000ECC93B /* MDC_RemindersTests.swift in Sources */,
+				3C46F8CC1A71BF2300D8A798 /* MDC_RemindersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3CE375831A68891000ECC93B /* PBXTargetDependency */ = {
+		3C46F8C71A71BF2300D8A798 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3CE3756B1A68891000ECC93B /* MDC Reminders */;
-			targetProxy = 3CE375821A68891000ECC93B /* PBXContainerItemProxy */;
+			target = 3C46F8AC1A71BF2300D8A798 /* MDC Reminders */;
+			targetProxy = 3C46F8C61A71BF2300D8A798 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3CE375751A68891000ECC93B /* Main.storyboard */ = {
+		3C46F8B91A71BF2300D8A798 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3CE375761A68891000ECC93B /* Base */,
+				3C46F8BA1A71BF2300D8A798 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3CE3757A1A68891000ECC93B /* LaunchScreen.xib */ = {
+		3C46F8BE1A71BF2300D8A798 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3CE3757B1A68891000ECC93B /* Base */,
+				3C46F8BF1A71BF2300D8A798 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -255,7 +263,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3CE375891A68891000ECC93B /* Debug */ = {
+		3C46F8CD1A71BF2300D8A798 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -298,7 +306,7 @@
 			};
 			name = Debug;
 		};
-		3CE3758A1A68891000ECC93B /* Release */ = {
+		3C46F8CE1A71BF2300D8A798 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -334,7 +342,7 @@
 			};
 			name = Release;
 		};
-		3CE3758C1A68891000ECC93B /* Debug */ = {
+		3C46F8D01A71BF2300D8A798 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -344,7 +352,7 @@
 			};
 			name = Debug;
 		};
-		3CE3758D1A68891000ECC93B /* Release */ = {
+		3C46F8D11A71BF2300D8A798 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -354,7 +362,7 @@
 			};
 			name = Release;
 		};
-		3CE3758F1A68891000ECC93B /* Debug */ = {
+		3C46F8D31A71BF2300D8A798 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -373,7 +381,7 @@
 			};
 			name = Debug;
 		};
-		3CE375901A68891000ECC93B /* Release */ = {
+		3C46F8D41A71BF2300D8A798 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -391,32 +399,47 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3CE375671A68891000ECC93B /* Build configuration list for PBXProject "MDC Reminders" */ = {
+		3C46F8A81A71BF2300D8A798 /* Build configuration list for PBXProject "MDC Reminders" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3CE375891A68891000ECC93B /* Debug */,
-				3CE3758A1A68891000ECC93B /* Release */,
+				3C46F8CD1A71BF2300D8A798 /* Debug */,
+				3C46F8CE1A71BF2300D8A798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CE3758B1A68891000ECC93B /* Build configuration list for PBXNativeTarget "MDC Reminders" */ = {
+		3C46F8CF1A71BF2300D8A798 /* Build configuration list for PBXNativeTarget "MDC Reminders" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3CE3758C1A68891000ECC93B /* Debug */,
-				3CE3758D1A68891000ECC93B /* Release */,
+				3C46F8D01A71BF2300D8A798 /* Debug */,
+				3C46F8D11A71BF2300D8A798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		3CE3758E1A68891000ECC93B /* Build configuration list for PBXNativeTarget "MDC RemindersTests" */ = {
+		3C46F8D21A71BF2300D8A798 /* Build configuration list for PBXNativeTarget "MDC RemindersTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3CE3758F1A68891000ECC93B /* Debug */,
-				3CE375901A68891000ECC93B /* Release */,
+				3C46F8D31A71BF2300D8A798 /* Debug */,
+				3C46F8D41A71BF2300D8A798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3C46F8B41A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3C46F8B51A71BF2300D8A798 /* MDC_Reminders.xcdatamodel */,
+			);
+			currentVersion = 3C46F8B51A71BF2300D8A798 /* MDC_Reminders.xcdatamodel */;
+			path = MDC_Reminders.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = 3CE375641A68891000ECC93B /* Project object */;
+	rootObject = 3C46F8A51A71BF2300D8A798 /* Project object */;
 }
