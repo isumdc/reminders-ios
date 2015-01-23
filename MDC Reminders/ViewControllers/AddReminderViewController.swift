@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddReminderViewController: UIViewController {
     
@@ -31,14 +32,23 @@ class AddReminderViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // The "Create" button will unwind to the ViewController, and the unwind will trigger this method
+        
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        var secondScene = segue.destinationViewController as ViewController
+        // Create new item within the ViewController's managedObjectContext.
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("ReminderItem", inManagedObjectContext: secondScene.managedObjectContext!) as ReminderItem
+        newItem.name = self.reminderTitleTextField.text
+        newItem.date = self.reminderDatePicker.date
+        newItem.enabled = false
+        newItem.repeating = false
+        newItem.frequency = 0
+//        newItem.stopDate = self.stopDate
+        
     }
-    */
 
 }
