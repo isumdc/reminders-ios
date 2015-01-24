@@ -11,6 +11,6 @@ import CoreData
 
 class FirstRun: NSManagedObject {
 
-    @NSManaged var firstRun: NSNumber
+    @NSManaged var firstRun: Bool
 
 }

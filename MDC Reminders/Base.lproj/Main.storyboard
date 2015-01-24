@@ -7,7 +7,7 @@
         <!--Reminders-->
         <scene sceneID="DWK-PH-9Ky">
             <objects>
-                <tableViewController id="O1P-dv-WMS" sceneMemberID="viewController">
+                <tableViewController id="O1P-dv-WMS" customClass="TableViewController" customModule="MDC_Reminders" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mVY-IU-2d1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,15 +63,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tK-yh-UlA">
-                                <rect key="frame" x="277" y="308" width="46" height="30"/>
-                                <state key="normal" title="Create">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="uhX-iV-COK" kind="unwind" unwindAction="unwindToTableVC:" id="O88-cN-Xr2"/>
-                                </connections>
-                            </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Td6-Ni-BYP">
                                 <rect key="frame" x="0.0" y="126" width="600" height="162"/>
                                 <constraints>
@@ -84,23 +75,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9tK-yh-UlA" firstAttribute="top" secondItem="mfs-hW-0ew" secondAttribute="bottom" constant="86" id="CYG-TX-Cvl"/>
                             <constraint firstItem="Td6-Ni-BYP" firstAttribute="leading" secondItem="ZeT-QO-pwY" secondAttribute="leading" id="Hq3-Rm-q4C"/>
                             <constraint firstAttribute="trailing" secondItem="Td6-Ni-BYP" secondAttribute="trailing" id="IPw-t6-2Fd"/>
                             <constraint firstAttribute="trailing" secondItem="mfs-hW-0ew" secondAttribute="trailing" constant="16" id="RYM-Nz-xwa"/>
-                            <constraint firstAttribute="centerX" secondItem="9tK-yh-UlA" secondAttribute="centerX" id="UZd-PZ-hgf"/>
                             <constraint firstItem="mfs-hW-0ew" firstAttribute="top" secondItem="hwp-PN-tKr" secondAttribute="bottom" constant="18" id="aRD-uN-fZU"/>
                             <constraint firstItem="mfs-hW-0ew" firstAttribute="leading" secondItem="ZeT-QO-pwY" secondAttribute="leading" constant="16" id="dYS-jt-qzv"/>
                             <constraint firstItem="Td6-Ni-BYP" firstAttribute="top" secondItem="mfs-hW-0ew" secondAttribute="bottom" constant="14" id="sKC-nb-Vmh"/>
-                            <constraint firstItem="9tK-yh-UlA" firstAttribute="top" secondItem="Td6-Ni-BYP" secondAttribute="bottom" constant="20" id="yCb-p9-9Fy"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="CYG-TX-Cvl"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Reminder" id="VvO-Cs-ibn"/>
+                    <navigationItem key="navigationItem" title="Add Reminder" id="VvO-Cs-ibn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8sF-vq-Xya">
+                            <connections>
+                                <segue destination="uhX-iV-COK" kind="unwind" unwindAction="saveItem:" id="9Tu-4d-twi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="reminderDatePicker" destination="Td6-Ni-BYP" id="eHT-Vl-yht"/>
                         <outlet property="reminderTitleTextField" destination="mfs-hW-0ew" id="6bi-uK-ln4"/>
