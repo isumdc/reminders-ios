@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		3C46F8B31A71BF2300D8A798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8B21A71BF2300D8A798 /* AppDelegate.swift */; };
 		3C46F8B61A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8B41A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld */; };
-		3C46F8B81A71BF2300D8A798 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8B71A71BF2300D8A798 /* ViewController.swift */; };
 		3C46F8BB1A71BF2300D8A798 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C46F8B91A71BF2300D8A798 /* Main.storyboard */; };
 		3C46F8BD1A71BF2300D8A798 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C46F8BC1A71BF2300D8A798 /* Images.xcassets */; };
 		3C46F8C01A71BF2300D8A798 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C46F8BE1A71BF2300D8A798 /* LaunchScreen.xib */; };
 		3C46F8CC1A71BF2300D8A798 /* MDC_RemindersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8CB1A71BF2300D8A798 /* MDC_RemindersTests.swift */; };
 		3C46F8D61A71C25100D8A798 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */; };
+		5846569C1A72994B0064B1E5 /* ReminderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846569B1A72994B0064B1E5 /* ReminderItem.swift */; };
+		5846569F1A729A6C0064B1E5 /* FirstRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846569E1A729A6C0064B1E5 /* FirstRun.swift */; };
+		584656A11A73F2CD0064B1E5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584656A01A73F2CD0064B1E5 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +34,6 @@
 		3C46F8B11A71BF2300D8A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C46F8B21A71BF2300D8A798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C46F8B51A71BF2300D8A798 /* MDC_Reminders.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MDC_Reminders.xcdatamodel; sourceTree = "<group>"; };
-		3C46F8B71A71BF2300D8A798 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C46F8BA1A71BF2300D8A798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C46F8BC1A71BF2300D8A798 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3C46F8BF1A71BF2300D8A798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -40,6 +41,9 @@
 		3C46F8CA1A71BF2300D8A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C46F8CB1A71BF2300D8A798 /* MDC_RemindersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDC_RemindersTests.swift; sourceTree = "<group>"; };
 		3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddReminderViewController.swift; path = ViewControllers/AddReminderViewController.swift; sourceTree = "<group>"; };
+		5846569B1A72994B0064B1E5 /* ReminderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderItem.swift; sourceTree = "<group>"; };
+		5846569E1A729A6C0064B1E5 /* FirstRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRun.swift; sourceTree = "<group>"; };
+		584656A01A73F2CD0064B1E5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +85,13 @@
 		3C46F8AF1A71BF2300D8A798 /* MDC Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				5846569D1A7299510064B1E5 /* Data Model */,
 				3C46F8B21A71BF2300D8A798 /* AppDelegate.swift */,
-				3C46F8B71A71BF2300D8A798 /* ViewController.swift */,
+				584656A01A73F2CD0064B1E5 /* TableViewController.swift */,
 				3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */,
 				3C46F8B91A71BF2300D8A798 /* Main.storyboard */,
 				3C46F8BC1A71BF2300D8A798 /* Images.xcassets */,
 				3C46F8BE1A71BF2300D8A798 /* LaunchScreen.xib */,
-				3C46F8B41A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld */,
 				3C46F8B01A71BF2300D8A798 /* Supporting Files */,
 			);
 			path = "MDC Reminders";
@@ -116,6 +120,16 @@
 				3C46F8CA1A71BF2300D8A798 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5846569D1A7299510064B1E5 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				3C46F8B41A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld */,
+				5846569E1A729A6C0064B1E5 /* FirstRun.swift */,
+				5846569B1A72994B0064B1E5 /* ReminderItem.swift */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,9 +232,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5846569C1A72994B0064B1E5 /* ReminderItem.swift in Sources */,
+				584656A11A73F2CD0064B1E5 /* TableViewController.swift in Sources */,
 				3C46F8D61A71C25100D8A798 /* AddReminderViewController.swift in Sources */,
-				3C46F8B81A71BF2300D8A798 /* ViewController.swift in Sources */,
 				3C46F8B61A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld in Sources */,
+				5846569F1A729A6C0064B1E5 /* FirstRun.swift in Sources */,
 				3C46F8B31A71BF2300D8A798 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

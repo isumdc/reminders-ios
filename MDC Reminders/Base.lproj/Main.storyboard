@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jij-L1-uA0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jij-L1-uA0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -7,16 +7,24 @@
         <!--Reminders-->
         <scene sceneID="DWK-PH-9Ky">
             <objects>
-                <tableViewController id="O1P-dv-WMS" sceneMemberID="viewController">
+                <tableViewController id="O1P-dv-WMS" customClass="TableViewController" customModule="MDC_Reminders" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mVY-IU-2d1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6Hs-dh-VFw">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="ZHG-xf-bB7" style="IBUITableViewCellStyleDefault" id="6Hs-dh-VFw">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Hs-dh-VFw" id="OYa-1b-RjK">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZHG-xf-bB7">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -28,12 +36,13 @@
                     <navigationItem key="navigationItem" title="Reminders" id="U0Z-Vv-jnn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="H4z-rk-WhB">
                             <connections>
-                                <segue destination="BN0-TK-ncY" kind="show" id="AIZ-CP-zBe"/>
+                                <segue destination="BN0-TK-ncY" kind="show" identifier="segueUnwindToTableVC" id="AIZ-CP-zBe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGV-c5-BsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uhX-iV-COK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="442" y="478"/>
         </scene>
@@ -54,15 +63,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tK-yh-UlA">
-                                <rect key="frame" x="277" y="308" width="46" height="30"/>
-                                <state key="normal" title="Create">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createButtonPressed:" destination="BN0-TK-ncY" eventType="touchUpInside" id="YFZ-tY-QSl"/>
-                                </connections>
-                            </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Td6-Ni-BYP">
                                 <rect key="frame" x="0.0" y="126" width="600" height="162"/>
                                 <constraints>
@@ -75,23 +75,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9tK-yh-UlA" firstAttribute="top" secondItem="mfs-hW-0ew" secondAttribute="bottom" constant="86" id="CYG-TX-Cvl"/>
                             <constraint firstItem="Td6-Ni-BYP" firstAttribute="leading" secondItem="ZeT-QO-pwY" secondAttribute="leading" id="Hq3-Rm-q4C"/>
                             <constraint firstAttribute="trailing" secondItem="Td6-Ni-BYP" secondAttribute="trailing" id="IPw-t6-2Fd"/>
                             <constraint firstAttribute="trailing" secondItem="mfs-hW-0ew" secondAttribute="trailing" constant="16" id="RYM-Nz-xwa"/>
-                            <constraint firstAttribute="centerX" secondItem="9tK-yh-UlA" secondAttribute="centerX" id="UZd-PZ-hgf"/>
                             <constraint firstItem="mfs-hW-0ew" firstAttribute="top" secondItem="hwp-PN-tKr" secondAttribute="bottom" constant="18" id="aRD-uN-fZU"/>
                             <constraint firstItem="mfs-hW-0ew" firstAttribute="leading" secondItem="ZeT-QO-pwY" secondAttribute="leading" constant="16" id="dYS-jt-qzv"/>
                             <constraint firstItem="Td6-Ni-BYP" firstAttribute="top" secondItem="mfs-hW-0ew" secondAttribute="bottom" constant="14" id="sKC-nb-Vmh"/>
-                            <constraint firstItem="9tK-yh-UlA" firstAttribute="top" secondItem="Td6-Ni-BYP" secondAttribute="bottom" constant="20" id="yCb-p9-9Fy"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="CYG-TX-Cvl"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Reminder" id="VvO-Cs-ibn"/>
+                    <navigationItem key="navigationItem" title="Add Reminder" id="VvO-Cs-ibn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8sF-vq-Xya">
+                            <connections>
+                                <segue destination="uhX-iV-COK" kind="unwind" unwindAction="saveItem:" id="9Tu-4d-twi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="reminderDatePicker" destination="Td6-Ni-BYP" id="eHT-Vl-yht"/>
                         <outlet property="reminderTitleTextField" destination="mfs-hW-0ew" id="6bi-uK-ln4"/>
@@ -99,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcW-fE-zeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="442" y="-196"/>
+            <point key="canvasLocation" x="1166" y="478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Run-3P-4Kh">
