@@ -25,31 +25,25 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     
     
-    
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let moc = self.managedObjectContext {
-            // Fetch the persistent FirstRun item
-            let fetchRequest = NSFetchRequest(entityName: "FirstRun")
-            if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [FirstRun] {
-                if (!fetchResults.isEmpty) {
-                    self.firstRun = fetchResults[0].firstRun
-                }
-            }
+        // Fetch "FirstRun" from the NSUserDefaults and test to see if this is the first time the user has run the app
+        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        if let testFirstRun = defaults.objectForKey("FirstRun") as? Bool {
+            self.firstRun = defaults.boolForKey("FirstRun")
+        }
+        if firstRun? == false {
+            // No first run methods are called if it's not the first run
+        } else {
+            // If it's the first time the user has run the app, run one-time-only methods here
+            println("First run actions taken.")
             
-            if firstRun? == false {
-                // No first run methods are called if it's not the first run
-            } else {
-                // If it's the first time the user has run the app, run one-time-only methods here
-                
-                // A FirstRun object is created and set to false, meaning no more first run methods will happen from here on out.
-                let firstRunObject = NSEntityDescription.insertNewObjectForEntityForName("FirstRun", inManagedObjectContext: managedObjectContext!) as FirstRun
-                firstRunObject.firstRun = false
-                firstRun = false
-            }
+            // Set FirstRun in NSUserDefaults to false
+            defaults.setBool(false, forKey: "FirstRun")
+            defaults.synchronize()
         }
         
         // The initial fetch in viewDidLoad() is necessary to present the items when the app is loaded
