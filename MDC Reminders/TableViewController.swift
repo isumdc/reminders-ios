@@ -71,7 +71,8 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
 
         // Configure the cell...
         cell.textLabel?.text = arrayOfReminders[indexPath.row].name
-        cell.detailTextLabel?.text = arrayOfReminders[indexPath.row].date.description
+        let formattedDate = NSDateFormatter.localizedStringFromDate(arrayOfReminders[indexPath.row].date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
+        cell.detailTextLabel?.text = formattedDate
         if (arrayOfReminders[indexPath.row].enabled == true) {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark } else { cell.accessoryType = UITableViewCellAccessoryType.None }
 

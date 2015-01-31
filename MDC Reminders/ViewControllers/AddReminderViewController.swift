@@ -21,11 +21,14 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var beginTimeStepper: UIStepper!
     @IBOutlet weak var endTimeStepper: UIStepper!
     
+    var frequencyInSeconds = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         stepperClicked(self)
+        sliderMoved(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +38,58 @@ class AddReminderViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func sliderMoved(sender: AnyObject) {
+        let sliderValue = repeatSlider.value
+        if (sliderValue == 0) {
+            repeatFrequencyLabel.text = "Never"
+            frequencyInSeconds = 0
+            return
+        } else if (sliderValue < 0.1) {
+            repeatFrequencyLabel.text = "5 minutes"
+            frequencyInSeconds = 5 * 60
+            return
+        } else if (sliderValue < 0.2) {
+            repeatFrequencyLabel.text = "10 minutes"
+            frequencyInSeconds = 10 * 60
+            return
+        } else if (sliderValue < 0.3) {
+            repeatFrequencyLabel.text = "15 minutes"
+            frequencyInSeconds = 15 * 60
+            return
+        } else if (sliderValue < 0.4) {
+            repeatFrequencyLabel.text = "30 minutes"
+            frequencyInSeconds = 30 * 60
+            return
+        } else if (sliderValue < 0.5) {
+            repeatFrequencyLabel.text = "1 hour"
+            frequencyInSeconds = 60 * 60
+            return
+        } else if (sliderValue < 0.6) {
+            repeatFrequencyLabel.text = "2 hours"
+            frequencyInSeconds = 2 * 60 * 60
+            return
+        } else if (sliderValue < 0.7) {
+            repeatFrequencyLabel.text = "3 hours"
+            frequencyInSeconds = 3 * 60 * 60
+            return
+        } else if (sliderValue < 0.8) {
+            repeatFrequencyLabel.text = "6 hours"
+            frequencyInSeconds = 6 * 60 * 60
+            return
+        } else if (sliderValue < 0.9) {
+            repeatFrequencyLabel.text = "day"
+            frequencyInSeconds = 24 * 60 * 60
+            return
+        } else if (sliderValue < 1) {
+            repeatFrequencyLabel.text = "week"
+            frequencyInSeconds = 7 * 24 * 60 * 60
+            return
+        } else if (sliderValue == 1) {
+            repeatFrequencyLabel.text = "month"
+            frequencyInSeconds = 30 * 7 * 24 * 60 * 60  // Figure out a better month calculation later
+        }
     }
     
     @IBAction func stepperClicked(sender: AnyObject) {
