@@ -22,6 +22,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     var arrayOfReminders: [ReminderItem] = []
     var firstRun: Bool?
+    var dateFormatter = NSDateFormatter()
     
     
     
@@ -29,6 +30,10 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Sets date format for use during Reminder Item saves
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
         // Fetch "FirstRun" from the NSUserDefaults and test to see if this is the first time the user has run the app
         var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -141,7 +146,15 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         // Create new item within the ViewController's managedObjectContext.
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("ReminderItem", inManagedObjectContext: managedObjectContext!) as ReminderItem
         newItem.name = secondScene.reminderTitleTextField.text
-        newItem.date = secondScene.reminderDatePicker.date
+        
+        // The bit of juggling before storing the date is required to truncate the seconds from the date.
+        // Otherwise the alarm won't happen right at the top of the minute.
+        // Since the dateFormatter's dateStyle and timeStyle are ShortStyle, it only keeps D/M/Y and H:M
+        let dateString = dateFormatter.stringFromDate(secondScene.reminderDatePicker.date)
+        let reformattedDate = dateFormatter.dateFromString(dateString)
+        newItem.date = reformattedDate!
+        triggerNotification(newItem.date)                                               // FIND A BETTER PLACE TO TRIGGER NOTIFICATIONS
+        
         newItem.enabled = secondScene.enableSwitch.on
         newItem.repeating = false
         newItem.frequency = 0
@@ -163,6 +176,14 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         
         // Save the data model
         save()
+    }
+    
+    func triggerNotification(onDate: NSDate) {
+        var localNotification: UILocalNotification = UILocalNotification()
+        localNotification.alertAction = "Testing notification for MDC Reminders"
+        localNotification.alertBody = "This is a reminder!"
+        localNotification.fireDate = onDate
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
 
 }
