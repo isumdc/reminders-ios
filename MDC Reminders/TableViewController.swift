@@ -71,6 +71,9 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
 
         // Configure the cell...
         cell.textLabel?.text = arrayOfReminders[indexPath.row].name
+        cell.detailTextLabel?.text = arrayOfReminders[indexPath.row].date.description
+        if (arrayOfReminders[indexPath.row].enabled == true) {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark } else { cell.accessoryType = UITableViewCellAccessoryType.None }
 
         return cell
     }
@@ -138,7 +141,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("ReminderItem", inManagedObjectContext: managedObjectContext!) as ReminderItem
         newItem.name = secondScene.reminderTitleTextField.text
         newItem.date = secondScene.reminderDatePicker.date
-        newItem.enabled = false
+        newItem.enabled = secondScene.enableSwitch.on
         newItem.repeating = false
         newItem.frequency = 0
 //        newItem.stopDate = self.stopDate
