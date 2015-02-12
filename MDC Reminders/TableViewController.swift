@@ -86,7 +86,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if(editingStyle == .Delete) {
-            println("Deleting item")
+            NSLog("Deleting item")
             
             // Find the LogItem object the user is trying to delete
             let itemToDelete = arrayOfReminders[indexPath.row]
@@ -116,7 +116,7 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     func save() {
         var error: NSError?
         if (managedObjectContext!.save(&error)) {
-            println("Data model saved. Errors: \(error?.localizedDescription)")
+            NSLog("Data model saved. Errors: \(error?.localizedDescription)")
         }
     }
     
@@ -133,12 +133,10 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
             arrayOfReminders = fetchResults
         }
         
-        println("Items fetched from data model")
+        NSLog("Fetched items from data model")
     }
     
     @IBAction func saveItem(segue: UIStoryboardSegue) {
-        // Called when the "Create" button is clicked in the AddReminderVC
-        println("Unwind from AddReminderVC")
         
         // Get the new view controller using segue.destinationViewController.
         var secondScene = segue.sourceViewController as AddReminderViewController
@@ -151,10 +149,12 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         // Otherwise the alarm won't happen right at the top of the minute.
         // Since the dateFormatter's dateStyle and timeStyle are ShortStyle, it only keeps D/M/Y and H:M
         let dateString = dateFormatter.stringFromDate(secondScene.reminderDatePicker.date)
-        let reformattedDate = dateFormatter.dateFromString(dateString)
-        newItem.date = reformattedDate!
-        triggerNotification(newItem.date)                                               // FIND A BETTER PLACE TO TRIGGER NOTIFICATIONS
         
+        let dateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute, fromDate: secondScene.reminderDatePicker.date);
+        
+        let date = NSCalendar.currentCalendar().dateFromComponents(dateComponents);
+
+        newItem.date = date!
         newItem.enabled = secondScene.enableSwitch.on
         newItem.repeating = false
         newItem.frequency = 0
@@ -162,6 +162,9 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         
         // Update the array
         fetchItems()
+        
+        // refresh our local notifications and add this one to the system
+        NotificationManager.updateNotifications();
         
         // Animate in the new row
         // Use Swift's find() function to figure out the index of the newLogItem
@@ -172,18 +175,10 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
             // Animate in the insertion of this row
             tableView.insertRowsAtIndexPaths([ newItemIndexPath ], withRowAnimation: .Automatic)
         }
-        println("Added new ReminderItem to data model. Name: \(newItem.name) Date: \(newItem.date)")
+        NSLog("Added new ReminderItem to data model. Name: \(newItem.name) Date: \(newItem.date)")
         
         // Save the data model
         save()
-    }
-    
-    func triggerNotification(onDate: NSDate) {
-        var localNotification: UILocalNotification = UILocalNotification()
-        localNotification.alertAction = "Testing notification for MDC Reminders"
-        localNotification.alertBody = "This is a reminder!"
-        localNotification.fireDate = onDate
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
 
 }

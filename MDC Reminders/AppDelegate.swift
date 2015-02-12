@@ -19,8 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register the application for local notification permissions (Asks the user to allow notifications for this app)
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound|UIUserNotificationType.Alert|UIUserNotificationType.Badge, categories: nil))
         
+        // update all local notifications from our list in core data
+        NotificationManager.updateNotifications();
+        
         // Override point for customization after application launch.
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        var alert = UIAlertView(title: "Reminder!", message: "test", delegate: self, cancelButtonTitle: "OK")
+        alert.show()
     }
 
     func applicationWillResignActive(application: UIApplication) {

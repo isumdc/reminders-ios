@@ -14,6 +14,7 @@
 		3C46F8C01A71BF2300D8A798 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C46F8BE1A71BF2300D8A798 /* LaunchScreen.xib */; };
 		3C46F8CC1A71BF2300D8A798 /* MDC_RemindersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8CB1A71BF2300D8A798 /* MDC_RemindersTests.swift */; };
 		3C46F8D61A71C25100D8A798 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */; };
+		3CC7C7E81A8D6EC40027B7E4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7C7E71A8D6EC40027B7E4 /* NotificationManager.swift */; };
 		5846569C1A72994B0064B1E5 /* ReminderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846569B1A72994B0064B1E5 /* ReminderItem.swift */; };
 		584656A11A73F2CD0064B1E5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584656A01A73F2CD0064B1E5 /* TableViewController.swift */; };
 		588966A51A7C8A420083AABA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588966A41A7C8A420083AABA /* DetailsViewController.swift */; };
@@ -41,6 +42,7 @@
 		3C46F8CA1A71BF2300D8A798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C46F8CB1A71BF2300D8A798 /* MDC_RemindersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDC_RemindersTests.swift; sourceTree = "<group>"; };
 		3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddReminderViewController.swift; path = ViewControllers/AddReminderViewController.swift; sourceTree = "<group>"; };
+		3CC7C7E71A8D6EC40027B7E4 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		5846569B1A72994B0064B1E5 /* ReminderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderItem.swift; sourceTree = "<group>"; };
 		584656A01A73F2CD0064B1E5 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		588966A41A7C8A420083AABA /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				584656A01A73F2CD0064B1E5 /* TableViewController.swift */,
 				3C46F8D51A71C25100D8A798 /* AddReminderViewController.swift */,
 				588966A41A7C8A420083AABA /* DetailsViewController.swift */,
+				3CC7C7E71A8D6EC40027B7E4 /* NotificationManager.swift */,
 				3C46F8B91A71BF2300D8A798 /* Main.storyboard */,
 				3C46F8BC1A71BF2300D8A798 /* Images.xcassets */,
 				3C46F8BE1A71BF2300D8A798 /* LaunchScreen.xib */,
@@ -236,6 +239,7 @@
 				584656A11A73F2CD0064B1E5 /* TableViewController.swift in Sources */,
 				3C46F8D61A71C25100D8A798 /* AddReminderViewController.swift in Sources */,
 				3C46F8B61A71BF2300D8A798 /* MDC_Reminders.xcdatamodeld in Sources */,
+				3CC7C7E81A8D6EC40027B7E4 /* NotificationManager.swift in Sources */,
 				3C46F8B31A71BF2300D8A798 /* AppDelegate.swift in Sources */,
 				588966A51A7C8A420083AABA /* DetailsViewController.swift in Sources */,
 			);
