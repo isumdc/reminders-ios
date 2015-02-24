@@ -20,11 +20,10 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         } else { return nil }
         }()
     
-    var arrayOfReminders: [ReminderItem] = []
-    var firstRun: Bool?
+    var futureReminders: [ReminderItem] = []
+    var pastReminders: [ReminderItem] = []
+    
     var dateFormatter = NSDateFormatter()
-    
-    
     
     // MARK: - Overrides
 
@@ -35,25 +34,14 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        // Fetch "FirstRun" from the NSUserDefaults and test to see if this is the first time the user has run the app
-        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        if let testFirstRun = defaults.objectForKey("FirstRun") as? Bool {
-            self.firstRun = defaults.boolForKey("FirstRun")
-        }
-        if firstRun? == false {
-            // No first run methods are called if it's not the first run
-        } else {
-            // If it's the first time the user has run the app, run one-time-only methods here
-            println("First run actions taken.")
-            
-            // Set FirstRun in NSUserDefaults to false
-            defaults.setBool(false, forKey: "FirstRun")
-            defaults.synchronize()
-        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // The initial fetch in viewDidLoad() is necessary to present the items when the app is loaded
         fetchItems()
         
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,23 +53,62 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
 
     // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
-        return arrayOfReminders.count
+        switch (section) {
+        case 0:
+            return self.futureReminders.count
+        case 1:
+            return self.pastReminders.count
+        default:
+            return 0
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch (section) {
+        case 0:
+            return "Future Reminders"
+        case 1:
+            return "Past Reminders"
+        default:
+            return nil
+        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
-        cell.textLabel?.text = arrayOfReminders[indexPath.row].name
-        let formattedDate = NSDateFormatter.localizedStringFromDate(arrayOfReminders[indexPath.row].date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
-        cell.detailTextLabel?.text = formattedDate
-        if (arrayOfReminders[indexPath.row].enabled == true) {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark } else { cell.accessoryType = UITableViewCellAccessoryType.None }
+        var reminder: ReminderItem
+        if (indexPath.section == 0) {
+            reminder = self.futureReminders[indexPath.row]
+        } else {
+            reminder = self.pastReminders[indexPath.row]
+        }
+        
+        cell.textLabel?.text = reminder.name
+        
+        cell.detailTextLabel?.text = NSDateFormatter.localizedStringFromDate(reminder.date, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
+        
+        cell.accessoryType = (reminder.enabled.boolValue ? .Checkmark : .None)
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        var reminder: ReminderItem
+        if (indexPath.section == 0) {
+            reminder = self.futureReminders[indexPath.row]
+        } else {
+            reminder = self.pastReminders[indexPath.row]
+        }
+        reminder.enabled = NSNumber(bool: !reminder.enabled.boolValue)
+        
+        self.save()
+        self.tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -89,16 +116,22 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
             NSLog("Deleting item")
             
             // Find the LogItem object the user is trying to delete
-            let itemToDelete = arrayOfReminders[indexPath.row]
+            var reminder: ReminderItem
+            if (indexPath.section == 0) {
+                reminder = self.futureReminders[indexPath.row]
+            } else {
+                reminder = self.pastReminders[indexPath.row]
+            }
             
             // Delete it from the managedObjectContext
-            managedObjectContext?.deleteObject(itemToDelete)
+            managedObjectContext?.deleteObject(reminder)
             
             // Refresh the table view to indicate that it's deleted
             self.fetchItems()
             
             // Tell the table view to animate out that row
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            
             save()
         }
     }
@@ -122,15 +155,28 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     func fetchItems() {
         // Create a fetch request to customize what you are requesting
-        let fetchRequest = NSFetchRequest(entityName: "ReminderItem")
+        let futureFetchRequest = NSFetchRequest(entityName: "ReminderItem")
+        futureFetchRequest.predicate = NSPredicate(format: "date >= %@", NSDate())
         
         // Create a sort descriptor object that sorts on the "date" property of the Core Data object, and set it on the fetch request
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        futureFetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         
         // Execute the fetch request, storying the results in the array of reminder items
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [ReminderItem] {
-            arrayOfReminders = fetchResults
+        if let fetchResults = managedObjectContext!.executeFetchRequest(futureFetchRequest, error: nil) as? [ReminderItem] {
+            self.futureReminders = fetchResults
+        }
+        
+        
+        // Create a fetch request to customize what you are requesting
+        let pastFetchRequest = NSFetchRequest(entityName: "ReminderItem")
+        pastFetchRequest.predicate = NSPredicate(format: "date < %@", NSDate())
+        
+        // Create a sort descriptor object that sorts on the "date" property of the Core Data object, and set it on the fetch request
+        pastFetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        
+        // Execute the fetch request, storying the results in the array of reminder items
+        if let fetchResults = managedObjectContext!.executeFetchRequest(pastFetchRequest, error: nil) as? [ReminderItem] {
+            self.pastReminders = fetchResults
         }
         
         NSLog("Fetched items from data model")
@@ -166,16 +212,9 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         // refresh our local notifications and add this one to the system
         NotificationManager.updateNotifications();
         
-        // Animate in the new row
-        // Use Swift's find() function to figure out the index of the newLogItem
-        // After it's been added and sorted in our logItems array
-        if let newItemIndex = find(arrayOfReminders, newItem) {
-            // Create an NSIndexPath from the newItemIndex
-            let newItemIndexPath = NSIndexPath(forRow: newItemIndex, inSection: 0)
-            // Animate in the insertion of this row
-            tableView.insertRowsAtIndexPaths([ newItemIndexPath ], withRowAnimation: .Automatic)
-        }
         NSLog("Added new ReminderItem to data model. Name: \(newItem.name) Date: \(newItem.date)")
+        
+        self.tableView.reloadData()
         
         // Save the data model
         save()

@@ -22,6 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // update all local notifications from our list in core data
         NotificationManager.updateNotifications();
         
+        
+        // Fetch "FirstRun" from the NSUserDefaults and test to see if this is the first time the user has run the app
+        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if defaults.objectForKey("FirstRun") == nil {
+            // If it's the first time the user has run the app, run one-time-only methods here
+            println("First run actions taken.")
+            
+            // Set FirstRun in NSUserDefaults to false
+            defaults.setBool(false, forKey: "FirstRun")
+            defaults.synchronize()
+        }
+        
         // Override point for customization after application launch.
         return true
     }
