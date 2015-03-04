@@ -22,23 +22,18 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
     
     var futureReminders: [ReminderItem] = []
     var pastReminders: [ReminderItem] = []
-    
-    var dateFormatter = NSDateFormatter()
+    var selectedIndexPath = NSIndexPath()
     
     // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Sets date format for use during Reminder Item saves
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         fetchItems()
         
         self.tableView.reloadData()
@@ -194,8 +189,6 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         // The bit of juggling before storing the date is required to truncate the seconds from the date.
         // Otherwise the alarm won't happen right at the top of the minute.
         // Since the dateFormatter's dateStyle and timeStyle are ShortStyle, it only keeps D/M/Y and H:M
-        let dateString = dateFormatter.stringFromDate(secondScene.reminderDatePicker.date)
-        
         let dateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute, fromDate: secondScene.reminderDatePicker.date);
         
         let date = NSCalendar.currentCalendar().dateFromComponents(dateComponents);
@@ -218,6 +211,67 @@ class TableViewController: UITableViewController, UITableViewDataSource, UITable
         
         // Save the data model
         save()
+    }
+    
+    @IBAction func updateItem(segue: UIStoryboardSegue) {
+        
+        // Get the new view controller using segue.destinationViewController.
+        var secondScene = segue.sourceViewController as DetailsViewController
+        
+        // Identify the reminder to update
+        var reminder: ReminderItem
+        if (selectedIndexPath.section == 0) {
+            reminder = self.futureReminders[selectedIndexPath.row]
+        } else {
+            reminder = self.pastReminders[selectedIndexPath.row]
+        }
+        
+        // The bit of juggling before storing the date is required to truncate the seconds from the date.
+        // Otherwise the alarm won't happen right at the top of the minute.
+        // Since the dateFormatter's dateStyle and timeStyle are ShortStyle, it only keeps D/M/Y and H:M
+        let dateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute, fromDate: secondScene.reminderDatePicker.date);
+        
+        let date = NSCalendar.currentCalendar().dateFromComponents(dateComponents);
+        
+        reminder.date = date!
+        reminder.enabled = secondScene.enableSwitch.on
+        reminder.repeating = false
+        reminder.frequency = 0
+        //        reminder.stopDate = self.stopDate
+        
+        // Update the array
+        fetchItems()
+        
+        // refresh our local notifications and update this one in the system
+        NotificationManager.updateNotifications();
+        
+        NSLog("Updated reminder in data model. Name: \(reminder.name) Date: \(reminder.date)")
+        
+        self.tableView.reloadData()
+        
+        // Save the data model
+        save()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segueToDetails") {
+            var nextScene = segue.destinationViewController as DetailsViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                var reminder: ReminderItem
+                if (indexPath.section == 0) {
+                    reminder = self.futureReminders[indexPath.row]
+                } else {
+                    reminder = self.pastReminders[indexPath.row]
+                }
+                
+//                nextScene.reminderTitleTextLabel.text = reminder.name
+//                nextScene.reminderDatePicker.date = reminder.date
+//                nextScene.enableSwitch.on = reminder.enabled as Bool
+//                nextScene.frequencyInSeconds = reminder.frequency as Int
+                
+                selectedIndexPath = indexPath
+            }
+        }
     }
 
 }
