@@ -24,8 +24,8 @@ class NotificationManager {
 
         // add all enabled reminders to local notifications
         for reminderItem in allNotifications {
-            if (reminderItem.enabled.boolValue) {
-                NSLog("Adding enabled notification: \(reminderItem.name)");
+            if (reminderItem.enabled.boolValue && reminderItem.date.timeIntervalSinceNow >= 0) {
+                NSLog("Adding enabled future notification: \(reminderItem.name)");
                 NotificationManager.addNotification(reminderItem);
             }
         }

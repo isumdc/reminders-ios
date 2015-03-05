@@ -39,9 +39,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        var alert = UIAlertView(title: "Reminder!", message: "test", delegate: self, cancelButtonTitle: "OK")
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        // Fires when the application is active and a local notification is received
+        NSLog("Received local notification: \(notification.alertBody)")
+        var alert = UIAlertView(title: "Reminder!", message: notification.alertBody, delegate: self, cancelButtonTitle: "OK")
         alert.show()
+        
+        // Refreshes the tableView items
+        let viewController = self.window?.rootViewController?.childViewControllers[0] as TableViewController
+        viewController.fetchItems()
+        viewController.tableView.reloadData()
     }
 
     func applicationWillResignActive(application: UIApplication) {
