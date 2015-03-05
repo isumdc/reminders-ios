@@ -60,6 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        // Refreshes the tableView items when application comes back from being in the background
+        let viewController = self.window?.rootViewController?.childViewControllers[0] as TableViewController
+        viewController.fetchItems()
+        viewController.tableView.reloadData()
     }
 
     func applicationWillTerminate(application: UIApplication) {
